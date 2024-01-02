@@ -1,11 +1,19 @@
 ---
 import Badge from '../components/Badge.astro'
 import Layout from '../layouts/Layout.astro'
+import LinkedinIcon from '../icons/Linkedin.astro'
+import SocialPill from '../components/SocialPill.astro'
+import GithubIcon from '../icons/Github.astro'
+import GmailIcon from '../icons/Gmail.astro'
+import ExperienceTimeline from '../components/ExperienceTimeline.astro'
+import SectionContainer from '../components/SectionContainer.astro'
 ---
 
-<Layout title='Marco Gonzalez'>
+<Layout
+  title='Portfolio of Marco Gonzalez - Web and Software Developer with +1 years of experience'
+  description='Hire Marco to create your website or web application. Web and Software Developer. Specialized in creating unique and dynamic web applications'>
   <main>
-    <section class='max-w-3xl w-full mx-auto py-44 px-6'>
+    <SectionContainer classNames='pt-44 pb-24'>
       <h1
         class='text-white text-5xl font-bold flex justify-start flex-row items-center gap-x-4 pb-10'>
         Hey, I'm Marco <a
@@ -16,7 +24,7 @@ import Layout from '../layouts/Layout.astro'
           <Badge>Open to work</Badge>
         </a>
       </h1>
-      <h2 class='text-2xl text-wrap'>
+      <h2 class='text-2xl text-wrap mb-4'>
         <span>+1 of experience.</span>
         <span class='text-indigo-200/90'>Web Developer.</span>
         <span class='text-purple-200/90'
@@ -26,6 +34,21 @@ import Layout from '../layouts/Layout.astro'
           Specialized in creating unique and dynamic web applications
         </span>
       </h2>
-    </section>
+      <nav class='flex items-center gap-x-4'>
+        <SocialPill
+          href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'>
+          <LinkedinIcon class='size-6' /> LinkedIn
+        </SocialPill>
+        <SocialPill href='https://github.com/Marco-Gonzalez26'>
+          <GithubIcon class='size-6' /> Github
+        </SocialPill>
+        <SocialPill class='size-8' href='mailto:magp260602@gmail.com'>
+          <GmailIcon /> magp260602@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+    <SectionContainer>
+      <ExperienceTimeline />
+    </SectionContainer>
   </main>
 </Layout>
