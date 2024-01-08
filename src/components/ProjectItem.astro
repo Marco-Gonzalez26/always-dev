@@ -1,0 +1,201 @@
+---
+import Github from '../icons/Github.astro'
+const { title, tags, description, image, idx } = Astro.props
+---
+
+<article
+  data-glow
+  class='gap-4 mb-4 flex flex-col'
+  style={{ '--base': (idx + 2) * 30, '--spread': (idx + 2) * 100 }}>
+  <span data-glow></span>
+  <h1 class='text-xl font-semibold text-yellow-200 mb-2'>{title}</h1>
+  <p class='text-lg text-pretty'>{description}</p>
+  <ul class='flex items-center flex-wrap gap-6'>
+    {
+      tags.map((tag: any) => {
+        return (
+          <li
+            class={`${tag.className} border rounded-full flex items-center gap-2 py-2 px-3 font-semibold`}>
+            <tag.icon class='h-6 w-6 ' />
+            {tag.name}
+          </li>
+        )
+      })
+    }
+  </ul>
+  <img
+    class='rounded shadow-2xl shadow-white/10 max-w-xl w-full mx-auto'
+    src={image}
+    alt={`Screenshot of ${title} project`}
+  />
+  <div class='flex items-center gap-2 flex-col md:flex-row'>
+    <a
+      data-glow
+      class='flex md:items-center py-2 justify-center hover:bg-black/10 transition duration-700 text-white hover:cursor-pointer flex-1 w-full'>
+      <span class='text-xl'>Visit</span>
+    </a>
+    <a
+      data-glow
+      class='flex md:items-center py-2 justify-center hover:bg-black/10 transition duration-700 text-white hover:cursor-pointer flex-1 w-full'>
+      <span class='text-xl'> Github</span>
+    </a>
+  </div>
+</article>
+<style>
+  :root {
+    --backdrop: hsl(0 0% 60% / 0.12);
+    --radius: 14;
+    --border: 3;
+    --backup-border: var(--backdrop);
+    --size: 200;
+  }
+
+  article {
+    border-radius: calc(var(--radius) * 1px);
+    --outer: 1;
+    position: relative;
+    grid-template-rows: 1fr auto;
+    padding: 1rem;
+    display: grid;
+    border: 1px solid hsl(0 0% 100% / 0.15);
+  }
+
+  /* Glow specific styles */
+  [data-glow] {
+    --border-size: calc(var(--border, 2) * 1px);
+    --spotlight-size: calc(var(--size, 150) * 1px);
+    --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+    background-image: radial-gradient(
+      var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)
+      ),
+      transparent
+    );
+    background-color: var(--backdrop, transparent);
+    background-size: calc(100% + (2 * var(--border-size)))
+      calc(100% + (2 * var(--border-size)));
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    border: var(--border-size) solid var(--backup-border);
+    position: relative;
+    touch-action: none;
+  }
+
+  [data-glow]::before,
+  [data-glow]::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: calc(var(--border-size) * -1);
+    border: var(--border-size) solid transparent;
+    border-radius: calc(var(--radius) * 1px);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--border-size)))
+      calc(100% + (2 * var(--border-size)));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    mask: linear-gradient(transparent, transparent),
+      linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+  }
+
+  /* This is the emphasis light */
+  [data-glow]::before {
+    background-image: radial-gradient(
+      calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+        calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)
+      ),
+      transparent 100%
+    );
+    filter: brightness(2);
+  }
+  /* This is the spotlight */
+  [data-glow]::after {
+    background-image: radial-gradient(
+      calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+        calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+      hsl(0 100% 100% / var(--border-light-opacity, 1)),
+      transparent 100%
+    );
+  }
+  [data-glow] > [data-glow]:not(:is(a, button)) {
+    position: absolute;
+    inset: 0;
+    will-change: filter;
+    opacity: var(--outer, 1);
+  }
+  [data-glow] > [data-glow]:not(:is(a, button)) {
+    border-radius: calc(var(--radius) * 1px);
+    border-width: calc(var(--border-size) * 20);
+    filter: blur(calc(var(--border-size) * 10));
+    background: none;
+    pointer-events: none;
+  }
+  [data-glow] > [data-glow]:not(:is(a, button))::before {
+    inset: -10px;
+    border-width: 10px;
+  }
+  [data-glow] > [data-glow] {
+    border: none;
+  }
+  [data-glow] :is(a, button) {
+    border-radius: calc(var(--radius) * 1px);
+    border: var(--border-size) solid transparent;
+  }
+  [data-glow] :is(a, button) [data-glow] {
+    background: none;
+  }
+  [data-glow] :is(a, button) [data-glow]::before {
+    inset: calc(var(--border-size) * -1);
+    border-width: calc(var(--border-size) * 1);
+  }
+
+  article button,
+  a {
+    padding: 0.75rem 2rem;
+    align-self: end;
+    color: hsl(0 0% 100%);
+  }
+
+  a[data-glow] span {
+    font-weight: bold;
+    background-image: radial-gradient(
+      var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 1)
+      ),
+      transparent
+    );
+    background-color: var(--backdrop, transparent);
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    background-clip: text;
+    filter: brightness(1.5);
+    color: transparent;
+  }
+</style>
+
+<script type='module'>
+  const syncPointer = ({ x, y }) => {
+    document.documentElement.style.setProperty('--x', x.toFixed(2))
+    document.documentElement.style.setProperty(
+      '--xp',
+      (x / window.innerWidth).toFixed(2)
+    )
+    document.documentElement.style.setProperty('--y', y.toFixed(2))
+    document.documentElement.style.setProperty(
+      '--yp',
+      (y / window.innerHeight).toFixed(2)
+    )
+  }
+  document.body.addEventListener('pointermove', syncPointer)
+</script>

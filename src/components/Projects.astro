@@ -1,5 +1,6 @@
 ---
-import { ProjectItem } from './ProjectItem.tsx'
+import { TAGS } from '../utils/data.jsx'
+import ProjectItem from './ProjectItem.astro'
 const PROJECTS = [
   {
     title: 'Project 1 ',
@@ -7,7 +8,7 @@ const PROJECTS = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     link: '#',
     image: '/placeholder_v2.webp',
-    tags: ['HTML']
+    tags: [TAGS.ASTRO, TAGS.TAILWIND, TAGS.REACT, TAGS.TYPESCRIPT]
   },
   {
     title: 'Project 2 ',
@@ -16,7 +17,7 @@ const PROJECTS = [
     link: '#',
     image: '/placeholder_v2.webp',
 
-    tags: ['HTML', 'React']
+    tags: [TAGS.NEXTJS, TAGS.TAILWIND, TAGS.REACT, TAGS.TYPESCRIPT]
   }
 ]
 ---
@@ -24,6 +25,6 @@ const PROJECTS = [
 {
   PROJECTS.map((project, idx) => {
     const projectProps = { ...project, idx }
-    return <ProjectItem client:visible {...projectProps} />
+    return <ProjectItem {...projectProps} />
   })
 }
