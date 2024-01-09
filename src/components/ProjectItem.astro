@@ -36,7 +36,7 @@ const { title, tags, description, image, idx } = Astro.props
     </a>
     <a
       data-glow
-      class='flex md:items-center py-2 justify-center hover:bg-black/10 transition duration-700 text-white hover:cursor-pointer flex-1 w-full'>
+      class='flex md:items-center py-2 justify-center hover:bg-black/10 transition duration-700 text-white hover:cursor-pointer flex-1 w-full border-2 border-white/20 md:border-0'>
       <span class='text-xl'> Github</span>
     </a>
   </div>
@@ -132,6 +132,9 @@ const { title, tags, description, image, idx } = Astro.props
     inset: calc(var(--border-size) * -1);
     border-width: calc(var(--border-size) * 1);
   }
+  [data-glow] {
+    --border-size: calc(var(--border, 2) * 1px);
+  }
 
   article button,
   a {
@@ -158,14 +161,9 @@ const { title, tags, description, image, idx } = Astro.props
     filter: brightness(1.5);
   }
 
-  @media screen (min-width: 767px) {
+  @media only screen and (min-width: 460px) {
     a[data-glow] span {
       color: transparent;
-    }
-    [data-glow] {
-      --border-size: calc(var(--border, 2) * 1px);
-      --spotlight-size: calc(var(--size, 150) * 1px);
-      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
     }
     [data-glow]::before {
       background-image: radial-gradient(
@@ -188,11 +186,15 @@ const { title, tags, description, image, idx } = Astro.props
         transparent 100%
       );
     }
+    [data-glow] {
+      --spotlight-size: calc(var(--size, 150) * 1px);
+      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+    }
   }
 </style>
 
 <script type='module'>
-  if ((!'ontouchstart') in window || !navigator.maxTouchPoints) {
+  if (window.innerWidth >= 460) {
     const syncPointer = ({ x, y }) => {
       document.documentElement.style.setProperty('--x', x.toFixed(2))
       document.documentElement.style.setProperty(
