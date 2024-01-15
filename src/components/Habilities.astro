@@ -9,21 +9,17 @@ import { TAGS } from '../utils/data'
     class='flex gap-4 py-4 flex-wrap items-center justify-center'
     id='scroller__inner'>
     {
-      [
-        TAGS.ASTRO,
-        TAGS.NEXTJS,
-        TAGS.REACT,
-        TAGS.TAILWIND,
-        TAGS.TYPESCRIPT,
-      ].map((tag) => {
-        return (
-          <li
-            class={`${tag.className} border rounded-full flex items-center gap-2 py-2 px-3 font-semibold`}>
-            <tag.icon class='h-6 w-6 ' />
-            {tag.name}
-          </li>
-        )
-      })
+      [TAGS.ASTRO, TAGS.NEXTJS, TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT].map(
+        (tag) => {
+          return (
+            <li
+              class={`${tag.className} border rounded-full flex items-center gap-2 py-4 px-6 font-semibold`}>
+              <tag.icon class='h-6 w-6 ' />
+              {tag.name}
+            </li>
+          )
+        }
+      )
     }
   </ul>
 </div>
@@ -75,8 +71,11 @@ import { TAGS } from '../utils/data'
     width: max-content;
     flex-wrap: nowrap;
     animation:
-      scroll var(--_animation-duration, 40s),
-      var(--_animation-direction, forwards) linear infinite;
+      scroll 
+      40s
+      forwards
+      linear 
+      infinite;
   }
   .scroller[data-direction='right'] {
     --_animation-direction: reverse;
