@@ -1,0 +1,97 @@
+---
+import SectionContainer from './SectionContainer.astro'
+import CodeIcon from '../icons/Code.astro'
+import { TAGS } from '../utils/data'
+---
+
+<div id='scroller' class='scroller max-w-2xl'>
+  <ul
+    class='flex gap-4 py-4 flex-wrap items-center justify-center'
+    id='scroller__inner'>
+    {
+      [
+        TAGS.ASTRO,
+        TAGS.NEXTJS,
+        TAGS.REACT,
+        TAGS.TAILWIND,
+        TAGS.TYPESCRIPT,
+        TAGS.ASTRO,
+        TAGS.NEXTJS,
+        TAGS.REACT,
+        TAGS.TAILWIND,
+        TAGS.TYPESCRIPT
+      ].map((tag) => {
+        return (
+          <li
+            class={`${tag.className} border rounded-full flex items-center gap-2 py-2 px-3 font-semibold`}>
+            <tag.icon class='h-6 w-6 ' />
+            {tag.name}
+          </li>
+        )
+      })
+    }
+  </ul>
+</div>
+<script type='module'>
+  const $scrollers = document.querySelectorAll('.scroller')
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    //addAnimation()
+  }
+
+  function addAnimation() {
+    $scrollers.forEach((scroller) => {
+      scroller.setAttribute('data-animated', true)
+
+      const scrollerInner = scroller.querySelector('#scroller__inner')
+
+      const scrollerContent = Array.from(scrollerInner.children)
+
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true)
+
+        duplicatedItem.setAttribute('aria-hidden', true)
+        scrollerInner.appendChild(duplicatedItem)
+      })
+    })
+  }
+</script>
+<style>
+  [data-animated='true'] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 20%,
+      white 80%,
+      transparent
+    );
+  }
+  [data-animated='true'] #scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation:
+      scroll var(--_animation-duration, 40s),
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  .scroller[data-direction='right'] {
+    --_animation-direction: reverse;
+  }
+  .scroller[data-direction='left'] {
+    --_animation-direction: forwards;
+  }
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+</style>

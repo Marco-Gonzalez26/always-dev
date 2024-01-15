@@ -66,7 +66,7 @@ const { title, tags, description, image, idx } = Astro.props
       var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
       hsl(
-        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+        var(46, 100%, 69%, 210) calc(var(--saturation, 100) * 1%)
           calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)
       ),
       transparent
@@ -208,6 +208,6 @@ const { title, tags, description, image, idx } = Astro.props
         (y / window.innerHeight).toFixed(2)
       )
     }
-    document.body.addEventListener('mousemove', syncPointer)
+    document.body.addEventListener('pointermove', syncPointer)
   }
 </script>

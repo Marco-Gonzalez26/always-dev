@@ -13,6 +13,8 @@ import GithubIcon from '../icons/Github.astro'
 import GmailIcon from '../icons/Gmail.astro'
 import BriefcaseIcon from '../icons/Briefcase.astro'
 import CodeIcon from '../icons/Code.astro'
+import Briefcase from '../icons/Briefcase.astro'
+import Habilities from '../components/Habilities.astro'
 ---
 
 <Layout
@@ -41,7 +43,7 @@ import CodeIcon from '../icons/Code.astro'
         </span>
       </h2>
       <nav class='flex items-center gap-6 flex-wrap'>
-        <SocialPill 
+        <SocialPill
           href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'>
           <LinkedinIcon class='size-6' /> LinkedIn
         </SocialPill>
@@ -56,16 +58,23 @@ import CodeIcon from '../icons/Code.astro'
     <SectionContainer id='experience'>
       <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
         <BriefcaseIcon class='size-8' />
-         Work Experience
+        Work Experience
       </h2>
       <ExperienceTimeline />
     </SectionContainer>
     <SectionContainer id='experience'>
       <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
-        <CodeIcon class='size-8' />
-         Projects
+        <Briefcase class='size-8' />
+        Projects
       </h2>
       <Projects />
+    </SectionContainer>
+    <SectionContainer>
+      <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
+        <CodeIcon class='size-8' />
+        Habilities
+      </h2>
+      <Habilities/>
     </SectionContainer>
   </main>
 </Layout>

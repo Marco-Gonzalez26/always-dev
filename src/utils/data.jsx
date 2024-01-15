@@ -16,7 +16,7 @@ export const TAGS = {
     icon: ReactIcon
   },
   ASTRO: {
-    name: 'Astro.build',
+    name: 'Astro',
     className: 'bg-[#654FF0]/20 border-[#654FF0]/60',
     icon: IconAstro
   },
