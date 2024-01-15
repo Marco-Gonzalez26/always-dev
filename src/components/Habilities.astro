@@ -1,6 +1,5 @@
 ---
-import SectionContainer from './SectionContainer.astro'
-import CodeIcon from '../icons/Code.astro'
+
 import { TAGS } from '../utils/data'
 ---
 
@@ -13,7 +12,7 @@ import { TAGS } from '../utils/data'
         (tag) => {
           return (
             <li
-              class={`${tag.className} border rounded-full flex items-center gap-2 py-4 px-6 font-semibold`}>
+              class={`${tag.className} border rounded-full flex items-center gap-2 py-2 px-3 font-semibold`}>
               <tag.icon class='h-6 w-6 ' />
               {tag.name}
             </li>
