@@ -5,7 +5,7 @@ const { title, tags, description, image, idx } = Astro.props
 
 <article
   data-glow
-  class='gap-4 mb-4 flex flex-col'
+  class='gap-4 mb-8 flex flex-col'
   style={{ '--base': (idx + 2) * 30, '--spread': (idx + 2) * 100 }}>
   <span data-glow></span>
   <h1 class='text-xl font-semibold text-yellow-200 mb-2'>{title}</h1>
@@ -23,12 +23,7 @@ const { title, tags, description, image, idx } = Astro.props
       })
     }
   </ul>
-  <img
-    class='rounded shadow-2xl shadow-white/10 max-w-xl w-full mx-auto'
-    src={image}
-    alt={`Screenshot of ${title} project`}
-  />
-  <div class='flex items-center gap-2 flex-col md:flex-row'>
+  <div class='flex items-center gap-2 flex-col md:flex-row mx-auto w-full'>
     <a
       data-glow
       class='flex md:items-center py-2 justify-center hover:bg-black/10 transition duration-700 text-white hover:cursor-pointer flex-1 w-full'>
@@ -40,6 +35,11 @@ const { title, tags, description, image, idx } = Astro.props
       <span class='text-xl'> Github</span>
     </a>
   </div>
+  <img
+    class='rounded shadow-2xl shadow-white/10 w-full mx-auto'
+    src={image}
+    alt={`Screenshot of ${title} project`}
+  />
 </article>
 <style>
   :root {

@@ -76,6 +76,11 @@ import { TAGS } from '../utils/data'
   .scroller[data-direction='left'] {
     --_animation-direction: forwards;
   }
+  .pause {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
   @keyframes scroll {
     to {
       transform: translate(calc(-50% - 0.5rem));
