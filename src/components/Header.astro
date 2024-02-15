@@ -4,6 +4,8 @@ import { LINKS_EN, LINKS_ES } from '../utils/data'
 const { currentLocale } = Astro
 
 const links = currentLocale === 'es' ? LINKS_ES : LINKS_EN
+
+console.log(Astro.url.origin, Astro.url.hostname)
 ---
 
 <header
