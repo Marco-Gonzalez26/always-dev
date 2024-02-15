@@ -16,8 +16,7 @@ console.log(import.meta.env.VERCEL_URL)
         return <a href={link}>{title}</a>
       })
     }
-    <a
-      href={`${import.meta.env.VERCEL_URL ? import.meta.env.VERCEL_URL : Astro.url.origin}/${currentLocale === 'es' ? '' : 'es'}`}>
+    <a href={`/${currentLocale === 'es' ? '' : 'es'}`}>
       {currentLocale === 'es' ? 'EN' : 'ES'}
     </a>
   </nav>
