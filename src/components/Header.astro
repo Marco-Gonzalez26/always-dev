@@ -4,8 +4,7 @@ import { LINKS_EN, LINKS_ES } from '../utils/data'
 const { currentLocale } = Astro
 
 const links = currentLocale === 'es' ? LINKS_ES : LINKS_EN
-import.meta.url
-console.log(Astro.url.origin, Astro.url.hostname, import.meta.url)
+console.log(import.meta.env.VERCEL_URL)
 ---
 
 <header
@@ -20,6 +19,6 @@ console.log(Astro.url.origin, Astro.url.hostname, import.meta.url)
     <a href={`${Astro.url.origin}/${currentLocale === 'es' ? '' : 'es'}`}>
       {currentLocale === 'es' ? 'EN' : 'ES'}
     </a>
+    {import.meta.env.VERCEL_URL}
   </nav>
-  {(Astro.url.origin, Astro.url.hostname)}
 </header>
