@@ -1,0 +1,88 @@
+---
+/* Components */
+import Layout from '../layouts/Layout.astro'
+import Badge from './Badge.astro'
+import SocialPill from './SocialPill.astro'
+import ExperienceTimeline from './ExperienceTimeline.astro'
+import SectionContainer from './SectionContainer.astro'
+import Projects from './Projects.astro'
+import Habilities from './Abilities.astro'
+import About from './About.astro'
+
+/* Icons */
+import LinkedinIcon from '../icons/Linkedin.astro'
+import GithubIcon from '../icons/Github.astro'
+import GmailIcon from '../icons/Gmail.astro'
+import UserIcon from '../icons/User.astro'
+import BriefcaseIcon from '../icons/Briefcase.astro'
+import CodeIcon from '../icons/Code.astro'
+import Laptop from '../icons/Laptop.astro'
+import { getI18N } from '../i18n'
+
+const { currentLocale = 'en' } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<Layout title={i18n.SEO_TITLE} description={i18n.SEO_DESCRIPTION}>
+  <main class='w-full md:px-6 pt-12 md:pt-0'>
+    <SectionContainer classNames='lg:pt-44 lg:pb-24 pb-10'>
+      <img class='rounded-full size-12 mb-4' src='' alt="Marco's avatar" />
+
+      <h1
+        class='text-white text-2xl md:text-5xl lg:text-6xl font-bold flex justify-start flex-row items-center gap-x-4 pb-6 lg:pb-10'>
+        {i18n.GREETINGS}
+        <a
+          href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'
+          target='_blank'
+          rel='noopener'
+          class='flex justify-center items-center'>
+          <Badge>{i18n.BADGE_TEXT_1}</Badge>
+        </a>
+      </h1>
+      <h2
+        class='text-xl md:text-2xl text-wrap mb-4'
+        set:html={i18n.INTRO_TEXT}
+      />
+      <nav class='flex items-center gap-6 flex-wrap'>
+        <SocialPill
+          href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'>
+          <LinkedinIcon class='size-6' /> LinkedIn
+        </SocialPill>
+        <SocialPill href='https://github.com/Marco-Gonzalez26'>
+          <GithubIcon class='size-6' /> Github
+        </SocialPill>
+        <SocialPill class='size-8' href='mailto:magp260602@gmail.com'>
+          <GmailIcon /> magp260602@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+    <SectionContainer id='experience'>
+      <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
+        <BriefcaseIcon class='size-8' />
+        {i18n.WORK_SECTION}
+      </h2>
+      <ExperienceTimeline />
+    </SectionContainer>
+    <SectionContainer id='projects'>
+      <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
+        <Laptop class='size-8' />
+        {i18n.PROJECT_SECTION}
+      </h2>
+      <Projects />
+    </SectionContainer>
+    <SectionContainer>
+      <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
+        <CodeIcon class='size-8' />
+        {i18n.ABILITIES_SECTION}
+      </h2>
+      <Habilities />
+    </SectionContainer>
+    <SectionContainer id='about'>
+      <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
+        <UserIcon class='size-8' />
+        {i18n.ABOUT_SECTION}
+      </h2>
+      <About text_1={i18n.ABOUT_TEXT_1} text_2={i18n.ABOUT_TEXT_2} />
+    </SectionContainer>
+  </main>
+</Layout>

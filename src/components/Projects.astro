@@ -1,29 +1,13 @@
 ---
-import { TAGS } from '../utils/data.jsx'
+import { PROJECTS_EN, PROJECTS_ES } from '../utils/data.jsx'
 import ProjectItem from './ProjectItem.astro'
-const PROJECTS = [
-  {
-    title: 'Project 1 ',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    link: '#',
-    image: '/placeholder_v2.webp',
-    tags: [TAGS.ASTRO, TAGS.TAILWIND, TAGS.REACT, TAGS.TYPESCRIPT]
-  },
-  {
-    title: 'Project 2 ',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    link: '#',
-    image: '/placeholder_v2.webp',
 
-    tags: [TAGS.NEXTJS, TAGS.TAILWIND, TAGS.REACT, TAGS.TYPESCRIPT]
-  }
-]
+const { currentLocale = 'en' } = Astro
+const projects = currentLocale === 'es' ? PROJECTS_ES : PROJECTS_EN
 ---
 
 {
-  PROJECTS.map((project, idx) => {
+  projects.map((project, idx) => {
     const projectProps = { ...project, idx }
     return <ProjectItem {...projectProps} />
   })

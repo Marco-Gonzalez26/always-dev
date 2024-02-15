@@ -1,33 +1,17 @@
 ---
 import ExperienceItem from './ExperienceItem.astro'
-const EXPERIENCE = [
-  {
-    date: 'March 2022',
-    title: 'Frontend Developer wiht React at Joga Fantasy',
-    type: 'Freelance',
-    description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
-  },
-  {
-    date: 'March 2022',
-    title: 'Frontend Developer wiht React at Joga Fantasy',
-    type: 'Freelance',
-    description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
-  },
-  {
-    date: 'March 2022',
-    title: 'Frontend Developer wiht React at Joga Fantasy',
-    type: 'Freelance',
-    description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
-  }
-]
+import { EXPERIENCE_EN, EXPERIENCE_ES } from '../utils/data'
+const { currentLocale } = Astro
+
+const experience = currentLocale === 'es' ? EXPERIENCE_ES : EXPERIENCE_EN
 ---
 
 <ol class='relative border-s border-gray-200 dark:border-yellow-300'>
   {
-    EXPERIENCE.map((experience) => {
+    experience.map((item) => {
       return (
         <li class='mb-10 ms-4'>
-          <ExperienceItem {...experience} />
+          <ExperienceItem {...item} />
         </li>
       )
     })
