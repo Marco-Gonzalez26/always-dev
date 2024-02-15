@@ -20,10 +20,3 @@ const links = currentLocale === 'es' ? LINKS_ES : LINKS_EN
     </a>
   </nav>
 </header>
-<script type='module'>
-  const $change_locale_btn = document.getElementById('change_locale_btn')
-
-  $change_locale_btn.addEventListener('click', () => {
-    window.location = `${location.origin}${location.pathname === '/es' ? '/' : '/es'}`
-  })
-</script>
