@@ -117,29 +117,33 @@ export const LINKS_ES = [
 
 export const EXPERIENCE_EN = [
   {
-    date: 'March 2022',
-    title: 'Frontend Developer with React at Joga Fantasy',
-    type: 'Freelance',
-    description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
+    date: 'October 2023',
+    title: 'Fullstack Developer at Eatplus',
+    actual: true,
+
+    type: 'Internship',
+    description: `Main backend developer that successfully integrate Google API and Google Drive API with NestJS, successful decision making to make the frontend communication easier, successfully integrate Chatgpt and Dalle-3 AI models, and successfully contribute with frontend development with React.`
   },
   {
     date: 'March 2022',
     title: 'Frontend Developer with React at Joga Fantasy',
     type: 'Freelance',
-    description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
+    description: `Successfully colaborate with a frontend team, and improve the user experience by persisting the data on localStorage to prevent a flash of data, successfully usage of React and Redux to connect the server endpoints`
   }
 ]
 export const EXPERIENCE_ES = [
   {
-    date: 'Marzo 2022',
-    title: 'Desarrollador Frontend con React en Joga Fantasy',
-    type: 'Freelance',
-    description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
+    date: 'Octubre 2023',
+    actual: true,
+    title: 'Desarrollador Fullstack en EatPlus',
+    type: 'Pasantía',
+    description: `Desarrollador Backend principal que integró existosamente Google y Google Drive con NestJS, toma de decisiones acertadas que hacen que la comunicación entre el Backend y el Frontend sea más sencilla y entendible, integré exitosamente los modelos de IA Chatgpt y Dalle-3, y contribuyo eficazmente con el desarrollo del Frontend con React y Redux`
   },
+
   {
     date: 'Marzo 2022',
     title: 'Desarrollador Frontend con React en Joga Fantasy',
     type: 'Freelance',
     description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
   }
-]
+] 

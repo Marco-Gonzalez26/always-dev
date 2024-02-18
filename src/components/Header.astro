@@ -4,20 +4,64 @@ import { LINKS_EN, LINKS_ES } from '../utils/data'
 const { currentLocale } = Astro
 
 const links = currentLocale === 'es' ? LINKS_ES : LINKS_EN
-console.log(import.meta.env.VERCEL_URL)
 ---
 
 <header
   id='header'
-  class='hidden md:flex justify-center items-center py-2 max-w-3xl w-full px-6 sticky top-4 z-50 rounded-full'>
-  <nav class='flex flex-row gap-x-10 opacity-90'>
+  class='hidden md:flex justify-center items-center py-2 px-6 sticky top-4 z-50 rounded-md'>
+  <nav class='flex flex-row gap-x-10'>
     {
       links.map(({ title, link }) => {
-        return <a href={link}>{title}</a>
+        return (
+          <a href={link} class='opacity-80 hover:opacity-100 transition'>
+            {title}
+          </a>
+        )
       })
     }
-    <a href={`/${currentLocale === 'es' ? '' : 'es'}`}>
+    <a
+      href={`/${currentLocale === 'es' ? '' : 'es'}`}
+      class='opacity-80 hover:opacity-100 transition'>
       {currentLocale === 'es' ? 'EN' : 'ES'}
     </a>
   </nav>
 </header>
+<button
+  id='mobileMenuBtn'
+  class='fixed top-1 right-1 backdrop-blur px-2 py-1 bg-black/20 z-50 rounded md:hidden'
+  >Menu</button
+>
+
+<header
+  class='fixed top-4 right-1 z-50 rounded-md mt-8 backdrop-blur p-4 bg-black/20 transition md:hidden'
+  style='transform: translateX(500px);'
+  id='mobile-nav'>
+  <nav class='gap-y-6 h-full flex flex-col items-center'>
+    {
+      links.map(({ title, link }) => {
+        return (
+          <a
+            href={link}
+            class='opacity-70 hover:opacity-100 transition hover:drop-shadow hover:shadow-white/50'>
+            {title}
+          </a>
+        )
+      })
+    }
+    <a
+      href={`/${currentLocale === 'es' ? '' : 'es'}`}
+      class='opacity-70 hover:opacity-100 transition hover:drop-shadow hover:shadow-white/50'>
+      {currentLocale === 'es' ? 'EN' : 'ES'}
+    </a>
+  </nav>
+</header>
+<script type='module'>
+  let isOpen = false
+  const $mobileMenuBtn = document.getElementById('mobileMenuBtn')
+  const $mobileNav = document.getElementById('mobile-nav')
+
+  $mobileMenuBtn.addEventListener('click', () => {
+    isOpen = !isOpen
+    $mobileNav.style = `transform:translateX(${isOpen ? '0' : '500'}px);`
+  })
+</script>
