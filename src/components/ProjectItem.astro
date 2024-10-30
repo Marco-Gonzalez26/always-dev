@@ -3,10 +3,7 @@ import Github from '../icons/Github.astro'
 const { title, tags, description, image, idx } = Astro.props
 ---
 
-<article
-  data-glow
-  class='gap-4 mb-8 flex flex-col'
-  style={{ '--base': (idx + 2) * 30, '--spread': (idx + 2) * 100 }}>
+<article data-glow class='project_item gap-4 mb-8 flex flex-col'>
   <span data-glow></span>
   <h1 class='text-xl font-semibold text-yellow-200 mb-2'>{title}</h1>
   <p class='text-lg text-pretty'>{description}</p>
@@ -36,7 +33,7 @@ const { title, tags, description, image, idx } = Astro.props
     </a>
   </div>
   <img
-    class='rounded shadow-2xl shadow-white/10 w-full mx-auto'
+    class='rounded shadow-2xl shadow-white/10 w-full mx-auto aspect-[3/2]'
     src={image}
     alt={`Screenshot of ${title} project`}
   />
@@ -123,7 +120,7 @@ const { title, tags, description, image, idx } = Astro.props
   }
   [data-glow] :is(a, button) {
     border-radius: calc(var(--radius) * 1px);
-    border: var(--border-size) solid transparent;
+    border: var(--border-size) solid rgba(255, 255, 255, 0.2);
   }
   [data-glow] :is(a, button) [data-glow] {
     background: none;
@@ -140,11 +137,12 @@ const { title, tags, description, image, idx } = Astro.props
   a {
     padding: 0.75rem 2rem;
     align-self: end;
-    color: hsl(0 0% 100%);
+    color: rgba(255, 255, 255, 0.2);
   }
 
   a[data-glow] span {
     font-weight: bold;
+
     background-image: radial-gradient(
       var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
@@ -152,9 +150,9 @@ const { title, tags, description, image, idx } = Astro.props
         var(--hue, 210) calc(var(--saturation, 100) * 1%)
           calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 1)
       ),
-      transparent
+      rgba(255, 255, 255, 0.3)
     );
-    background-color: var(--backdrop, transparent);
+    background-color: var(--backdrop, rgba(255, 255, 255, 0.2));
     background-position: 50% 50%;
     background-attachment: fixed;
     background-clip: text;
@@ -195,7 +193,7 @@ const { title, tags, description, image, idx } = Astro.props
 </style>
 
 <script type='module' is:inline>
-  if (window.innerWidth >= 460) {
+  if (window.innerWidth >= 700) {
     const syncPointer = ({ x, y }) => {
       document.documentElement.style.setProperty('--x', x.toFixed(2))
       document.documentElement.style.setProperty(
@@ -208,6 +206,6 @@ const { title, tags, description, image, idx } = Astro.props
         (y / window.innerHeight).toFixed(2)
       )
     }
-    document.body.addEventListener('pointermove', syncPointer)
+    document.body.addEventListener('mousemove', syncPointer)
   }
 </script>

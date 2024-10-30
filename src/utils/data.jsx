@@ -3,8 +3,16 @@ import ReactIcon from '../icons/React.astro'
 import IconAstro from '../icons/IconAstro.astro'
 import NextJSIcon from '../icons/NextJS.astro'
 import TypeScriptIcon from '../icons/TypeScript.astro'
+import NestJSIcon from '../icons/NestJS.astro'
+import MongoDBIcon from '../icons/MongoDB.astro'
+import ExpressJSIcon from '../icons/ExpressJS.astro'
 
 export const TAGS = {
+  NESTJS: {
+    name: 'NestJS',
+    className: 'bg-[#EB2845]/20 border-[#EB2845]/60',
+    icon: NestJSIcon
+  },
   TAILWIND: {
     name: 'Tailwind',
     className: 'bg-[#38B2AC]/20 border-[#38B2AC]/60',
@@ -29,16 +37,26 @@ export const TAGS = {
     name: 'TypeScript',
     className: 'bg-[#3178C6]/20 border-[#3178C6]/60',
     icon: TypeScriptIcon
+  },
+  MONGODB: {
+    name: 'MongoDB',
+    className: 'bg-[#01EC64]/20 border-[#01EC64]/60',
+    icon: MongoDBIcon
+  },
+  EXPRESSJS: {
+    name: 'ExpressJS',
+    className: 'bg-[#222]/20 border-[#222]/60',
+    icon: ExpressJSIcon
   }
 }
 export const PROJECTS_EN = [
   {
-    title: 'Project 1 ',
+    title: 'iPhone 15 Pro Landing Page',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    link: '#',
-    image: '/placeholder_v2.webp',
-    tags: [TAGS.ASTRO, TAGS.TAILWIND, TAGS.REACT, TAGS.TYPESCRIPT]
+    link: 'https://iphone-15-pro-landing.vercel.app/',
+    image: '/apple-landing.jpg',
+    tags: [TAGS.TAILWIND, TAGS.REACT, TAGS.TYPESCRIPT]
   },
   {
     title: 'Project 2 ',
@@ -146,4 +164,4 @@ export const EXPERIENCE_ES = [
     type: 'Freelance',
     description: `Get access to over 20+ pages including a dashboard layout charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.`
   }
-] 
+]

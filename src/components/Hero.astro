@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets'
+import SectionContainer from './SectionContainer.astro'
+import { getI18N } from '../i18n'
+import Sticker from '../images/sticker.png'
+
+import Badge from './Badge.astro'
+import SocialPill from './SocialPill.astro'
+import LinkedinIcon from '../icons/Linkedin.astro'
+import GithubIcon from '../icons/Github.astro'
+import GmailIcon from '../icons/Gmail.astro'
+import DownloadIcon from '../icons/Download.astro'
+
+const { currentLocale = 'en' } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<SectionContainer classNames='lg:pt-24 lg:pb-24 pb-10'>
+  <Image class='rounded-full size-24 mb-4' src={Sticker} alt="Marco's avatar" />
+
+  <h1
+    class='text-white text-2xl md:text-5xl lg:text-6xl font-bold flex justify-start flex-row items-center gap-x-4 pb-6 lg:pb-10'>
+    {i18n.GREETINGS}
+    <a
+      href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'
+      target='_blank'
+      rel='noopener'
+      class='flex justify-center items-center animate-bounce'>
+      <Badge>{i18n.BADGE_TEXT_1}</Badge>
+    </a>
+  </h1>
+  <h2 class='text-xl md:text-2xl text-wrap mb-4' set:html={i18n.INTRO_TEXT} />
+  <nav class='flex items-center gap-6 flex-wrap'>
+    <SocialPill href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'>
+      <DownloadIcon class='size-6' />
+      {i18n.CV_TEXT}
+    </SocialPill>
+    <SocialPill href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'>
+      <LinkedinIcon class='size-6' /> LinkedIn
+    </SocialPill>
+    <SocialPill href='https://github.com/Marco-Gonzalez26'>
+      <GithubIcon class='size-6' /> Github
+    </SocialPill>
+    <SocialPill class='size-8' href='mailto:magp260602@gmail.com'>
+      <GmailIcon /> magp260602@gmail.com
+    </SocialPill>
+  </nav>
+</SectionContainer>

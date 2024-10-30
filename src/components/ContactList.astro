@@ -1,0 +1,23 @@
+---
+import SocialPill from './SocialPill.astro'
+import LinkedinIcon from '../icons/Linkedin.astro'
+import GithubIcon from '../icons/Github.astro'
+import InstagramIcon from '../icons/Instagram.astro'
+import UpworkIcon from '../icons/Upwork.astro'
+---
+
+<div class='flex gap-6 flex-wrap items-center justify-center'>
+  <SocialPill href classNames='animate-bounce '>
+    <UpworkIcon class='size-6' />
+    Upwork
+  </SocialPill>
+  <SocialPill href='https://www.linkedin.com/in/marco-gonzalez-77341b1b7/'>
+    <LinkedinIcon class='size-6' /> LinkedIn
+  </SocialPill>
+  <SocialPill href='https://github.com/Marco-Gonzalez26'>
+    <GithubIcon class='size-6' /> Github
+  </SocialPill>
+  <SocialPill href>
+    <InstagramIcon class='size-6' />Instagram
+  </SocialPill>
+</div>

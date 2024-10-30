@@ -4,10 +4,13 @@
   "GREETINGS": "Hola! soy Marco",
   "BADGE_TEXT_1": "Abierto a contratación",
   "INTRO_TEXT": "<span>+1 de experiencia.</span> <span class='text-indigo-200/90'>Desarrollador Web.</span> <span class='text-purple-200/90'>De Maracaibo,Venezuela 🇻🇪, pero localizado en Ecuador 🇪🇨.</span> <span class='opacity-75'> Especializado en crear aplicaciones web únicas y dinámicas</span>.",
+  "CV_TEXT": "Descargar CV",
+
   "WORK_SECTION": "Experiencia Laboral",
   "PROJECT_SECTION": "Proyectos",
   "ABILITIES_SECTION": "Habilidades",
   "ABOUT_SECTION": "Sobre mí",
   "ABOUT_TEXT_1": "Mi nombre es Marco Gonzalez, cuando era niño quería médico, y estaba a punto de empezar la carrera pero el COVID-19 llegó, y no pude empezar, así que empecé a buscar otra alternativa, en esa busqueda <span class='opacity-100 text-blue-300 font-bold'>encontré un video de Desarrollo Web, y me enamoré</span>",
-  "ABOUT_TEXT_2": "Orgullosamente puedo decir que ni siquiera sabía como importar un archivo css en un html y <span class='opacity-100 text-blue-300 font-bold'>ahora estoy a cargo de un pequeño equipo de desarrollo a mis 21 años</span>"
+  "ABOUT_TEXT_2": "Orgullosamente puedo decir que ni siquiera sabía como importar un archivo css en un html y <span class='opacity-100 text-blue-300 font-bold'>ahora estoy a cargo de un pequeño equipo de desarrollo a mis 21 años</span>",
+  "CONTACT_SECTION": "Contáctame"
 }

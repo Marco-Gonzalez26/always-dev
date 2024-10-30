@@ -1,0 +1,14 @@
+---
+import { PROJECTS_EN, PROJECTS_ES } from '../utils/data.jsx'
+import ProjectItem from './ProjectItem.astro'
+
+const { currentLocale = 'en' } = Astro
+const projects = currentLocale === 'es' ? PROJECTS_ES : PROJECTS_EN
+---
+
+{
+  projects.map((project, idx) => {
+    const projectProps = { ...project, idx }
+    return <ProjectItem {...projectProps} />
+  })
+}

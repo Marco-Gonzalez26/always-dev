@@ -4,10 +4,12 @@
   "GREETINGS": "Hey! I'm Marco",
   "BADGE_TEXT_1": "Open to work",
   "INTRO_TEXT": "<span>+1 of experience.</span> <span class='text-indigo-200/90'>Web Developer.</span> <span class='text-purple-200/90'>From Maracaibo,Venezuela 🇻🇪, but based in Ecuador 🇪🇨.</span> <span class='opacity-75'> Specialized in creating unique and dynamic web applications</span>.",
+  "CV_TEXT": "Download Resume",
   "WORK_SECTION": "Work Experience",
-  "PROJECT_SECTION": "Project",
+  "PROJECT_SECTION": "Projects",
   "ABILITIES_SECTION": "Abilities",
   "ABOUT_SECTION": "About me",
   "ABOUT_TEXT_1": "My name is Marco Gonzalez, when I was a child I wanted to be a doctor, and I was to start that carrer but the COVID-19 came, and I couldn't start, so I was searching for something else to study, in that search <span class='opacity-100 text-blue-300 font-bold'>I found a Web Development roadmap video, and I felt in love.</span>",
-  "ABOUT_TEXT_2": "I proudly say that I didn't even know how to link a css file to an html file and <span class='opacity-100 text-blue-300 font-bold'>now I am in charge of a development team at 21 years old</span>, and I hope in the future I can combine my two passions, Medicine andSoftware Development.</p>"
+  "ABOUT_TEXT_2": "I proudly say that I didn't even know how to link a css file to an html file and <span class='opacity-100 text-blue-300 font-bold'>now I am in charge of a development team at 21 years old</span>, and I hope in the future I can combine my two passions, Medicine and Software Development.</p>",
+  "CONTACT_SECTION": "Contact me"
 }

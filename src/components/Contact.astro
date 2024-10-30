@@ -1,16 +1,16 @@
 ---
-import { getI18N } from '../i18n'
-import ProjectsList from './ProjectsList.astro'
 import SectionContainer from './SectionContainer.astro'
-import Laptop from '../icons/Laptop.astro'
+import ContactList from './ContactList.astro'
+import ContactIcon from '../icons/Contact.astro'
+import { getI18N } from '../i18n'
 const { currentLocale = 'en' } = Astro
 const i18n = getI18N({ currentLocale })
 ---
 
-<SectionContainer id='projects'>
+<SectionContainer id='contact'>
   <h2 class='text-2xl font-semibold mb-6 flex gap-x-2 items-center'>
-    <Laptop class='size-8' />
-    {i18n.PROJECT_SECTION}
+    <ContactIcon class='size-6' />
+    {i18n.CONTACT_SECTION}
   </h2>
-  <ProjectsList />
+  <ContactList />
 </SectionContainer>
